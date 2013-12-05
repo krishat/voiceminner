@@ -124,40 +124,40 @@ a.c1 {font-weight: normal;}
     <div class="browser-landing" id="main">
       <div class="compact marquee-stacked" id="marquee">
         <div class="marquee-copy">
-<span> </span>
 </br>
-          <h1>Voice Minner</h1>
+</br>
+          <h1 align="center">V0iCe |V|inner</h1>
         </div>
       </div>
       <div class="compact marquee">
-        <div id="info">
-          <p id="info_start" style="color:white">
+        <div id="info" class="alert alert-info">
+          <p id="info_start">
             Click on the microphone icon and begin speaking for as long as you like.
           </p>
-          <p id="info_speak_now" style="display:none; color:white;">
+          <p id="info_speak_now" style="display:none;">
             Speak now.
           </p>
-          <p id="info_no_speech" style="display:none; color:white;">
+          <p id="info_no_speech" style="display:none;">
             No speech was detected. You may need to adjust your <a href=
             "//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">microphone
             settings</a>.
           </p>
-          <p id="info_no_microphone" style="display:none; color:white;">
+          <p id="info_no_microphone" style="display:none;">
             No microphone was found. Ensure that a microphone is installed and that
             <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
             microphone settings</a> are configured correctly.
           </p>
-          <p id="info_allow" style="display:none; color:white;">
+          <p id="info_allow" style="display:none;">
             Click the "Allow" button above to enable your microphone.
           </p>
-          <p id="info_denied" style="display:none; color:white;">
+          <p id="info_denied" style="display:none;">
             Permission to use microphone was denied.
           </p>
-          <p id="info_blocked" style="display:none; color:white;">
+          <p id="info_blocked" style="display:none;">
             Permission to use microphone is blocked. To change, go to
             chrome://settings/contentExceptions#media-stream
           </p>
-          <p id="info_upgrade" style="display:none; color:white;">
+          <p id="info_upgrade" style="display:none;">
             Web Speech API is not supported by this browser. Upgrade to <a href=
             "//www.google.com/chrome">Chrome</a> version 25 or later.
           </p>
@@ -173,6 +173,11 @@ a.c1 {font-weight: normal;}
           "interim_span"></span>
         </div>
 </div>
+</br>
+         <div id="searchresult"> </div>
+</br>
+</br>
+</br>
         <script src="/intl/en/chrome/assets/common/js/chrome.min.js">
 </script> <script>
 var chrmMenuBar = new chrm.ui.MenuBar();
@@ -268,6 +273,14 @@ if (!('webkitSpeechRecognition' in window)) {
     }
   };
 
+function search_result()
+{
+
+recognizing = false;
+recognition.stop();
+$("#searchresult").append("<h2 style=\"color:white\">Search Results</h2></br> <p style=\"color:white\"> will be rendered during final project presentation :) </p>");
+};
+
   recognition.onresult = function(event) {
     var interim_transcript = '';
     if (typeof(event.results) == 'undefined') {
@@ -285,6 +298,11 @@ if (!('webkitSpeechRecognition' in window)) {
     }
     final_transcript = capitalize(final_transcript);
     final_span.innerHTML = linebreak(final_transcript);
+    console.log(final_transcript);
+    if(final_transcript.match(/search/gi))
+    {
+        search_result();
+    }
     interim_span.innerHTML = linebreak(interim_transcript);
     if (final_transcript || interim_transcript) {
       showButtons('inline-block');
