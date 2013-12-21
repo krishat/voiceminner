@@ -278,7 +278,7 @@ function search_result()
 
 recognizing = false;
 recognition.stop();
-$("#searchresult").append("<h2 style=\"color:white\">Search Results</h2></br> <p style=\"color:white\"> will be rendered during final project presentation :) </p>");
+$("#searchresult").append("<h2 style=\"color:white\">Search Results</h2></br> <p style=\"color:white\"> KEYWORDS: programming language, C++, Java, Asp.Net#, C#   </p>");
 };
 
   recognition.onresult = function(event) {
