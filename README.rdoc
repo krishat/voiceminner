@@ -5,24 +5,18 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version - Ruby 1.9.1, Ruby on Rails 3
 
 * System dependencies
 
 * Configuration
 
-* Database creation
+* Database creation - need traing data from kaggle.com for traing the machine
 
-* Database initialization
+* Database initialization - get the data from website and run the trainging program to generate machine understandable model
 
 * How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Deployment instructions - Run it as a general rails application installing all required gems using bundle
